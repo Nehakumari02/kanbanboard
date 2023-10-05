@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import react,{useEffect} from 'react'
 import './App.css';
+import Navbar from './components/Nav/Navbar';
+import Dashview from './components/Dashview/Dashview';
+import Card from './components/Card/Card';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App=()=>{
+  const data=async()=>{
+    try{
+      const res=await fetch(' https://api.quicksell.co/v1/internal/frontend-assignment ');
+      console.log(res);
+    }
+    catch(err){
+      console.log(err);
+    }
+  }
+    useEffect(()=>{
+      data();
+    },[]);
+    return(
+    <>
+    
+    <h2>kanbanboard</h2>
+    <Card></Card>
+    </>
+    )
 }
 
-export default App;
+
+export default App
